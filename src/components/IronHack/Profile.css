@@ -1,0 +1,28 @@
+/* Profile */
+
+.profile-frame {
+    background-color: white;
+    color: black;
+    display: flex;
+    border: 0.25rem solid gray;
+    padding: 0.25rem;
+    margin: 1rem;
+    gap: 0.5rem;
+}
+
+.profile-image {
+    width: 8rem;
+    display: flex;
+    align-items: center;
+}
+
+.profile-image img {
+    width: 8rem;
+    height: 8rem;
+    object-fit: cover;
+}
+
+.profile-info {
+    width: 24rem;
+    text-align: left;
+}

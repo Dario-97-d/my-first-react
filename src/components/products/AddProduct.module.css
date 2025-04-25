@@ -1,0 +1,7 @@
+.form-new-product {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-gap: 1rem;
+    width: min-content;
+    margin: 1rem 0;
+}

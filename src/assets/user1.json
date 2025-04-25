@@ -1,0 +1,8 @@
+{
+    "firstName": "John",
+    "lastName": "Doer",
+    "gender": "male",
+    "height": 172,
+    "birth": "1988-05-11",
+    "picture": "https://randomuser.me/api/portraits/men/44.jpg"
+}
