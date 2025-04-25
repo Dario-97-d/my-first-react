@@ -12,6 +12,7 @@
 .card-type {
     align-self: flex-end;
     font-size: 1.25rem;
+    height: 2rem;
 }
 
 .card-number {
