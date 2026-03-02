@@ -1,72 +1,72 @@
 [
     {
       "id": 1,
-      "name": "Camisola Oversized",
+      "name": "Oversized Hoodie",
       "price": 29.99,
-      "category": "Roupa",
+      "category": "Clothes",
       "inStock": true
     },
     {
       "id": 2,
-      "name": "Tênis Urbanos",
+      "name": "Urban Sneakers",
       "price": 59.90,
-      "category": "Calçado",
+      "category": "Shoes",
       "inStock": true
     },
     {
       "id": 3,
-      "name": "Mochila Minimalista",
+      "name": "Minimalist Backpack",
       "price": 45.00,
-      "category": "Acessórios",
+      "category": "Accessories",
       "inStock": false
     },
     {
       "id": 4,
-      "name": "Óculos de Sol",
+      "name": "Sunglasses",
       "price": 19.99,
-      "category": "Acessórios",
+      "category": "Accessories",
       "inStock": true
     },
     {
       "id": 5,
-      "name": "Casaco Unissexo",
+      "name": "Unisex Jacket",
       "price": 89.50,
-      "category": "Roupa",
+      "category": "Clothes",
       "inStock": true
     },
     {
       "id": 6,
-      "name": "Relógio Digital",
+      "name": "Digital Clock",
       "price": 39.99,
-      "category": "Tecnologia",
+      "category": "Technology",
       "inStock": false
     },
     {
       "id": 7,
-      "name": "Boné Preto",
+      "name": "Black Cap",
       "price": 14.95,
-      "category": "Acessórios",
+      "category": "Accessories",
       "inStock": true
     },
     {
       "id": 8,
-      "name": "Sweat com Capuz",
+      "name": "Sweater",
       "price": 34.90,
-      "category": "Roupa",
+      "category": "Clothes",
       "inStock": true
     },
     {
       "id": 9,
-      "name": "Fones Bluetooth",
+      "name": "Bluetooth Headset",
       "price": 49.99,
-      "category": "Tecnologia",
+      "category": "Technology",
       "inStock": true
     },
     {
       "id": 10,
-      "name": "Carteira Slim",
+      "name": "Slim Wallet",
       "price": 24.99,
-      "category": "Acessórios",
+      "category": "Accessories",
       "inStock": false
     }
   ]

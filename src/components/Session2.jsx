@@ -1,13 +1,13 @@
-import IdCard from './lab1/IdCard'
-import Greetings from './lab1/Greetings'
-import Random from './lab1/Random'
-import BoxColor from './lab1/BoxColor'
-import CreditCard from './lab1/CreditCard'
-import Rating from './lab1/Rating'
-import DriverCard from './lab1/DriverCard'
-import LikeButton from './lab1/LikeButton'
+import IdCard from './session2/IdCard'
+import Greetings from './session2/Greetings'
+import Random from './session2/Random'
+import BoxColor from './session2/BoxColor'
+import CreditCard from './session2/CreditCard'
+import Rating from './session2/Rating'
+import DriverCard from './session2/DriverCard'
+import LikeButton from './session2/LikeButton'
 
-function Lab1()
+export default function Session2()
 {
     return (
     <>
@@ -21,7 +21,7 @@ function Lab1()
         />
 
         <IdCard
-            lastName='Delores '
+            lastName='Delores'
             firstName='Obrien'
             gender='female'
             height={172}
@@ -105,5 +105,3 @@ function Lab1()
         <LikeButton />
     </>)
 }
-
-export default Lab1

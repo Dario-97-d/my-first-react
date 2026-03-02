@@ -33,7 +33,7 @@ function Product(props)
                 </button>
                 
                 <button className='delete' onClick={() => deleteProduct(product.id)}>
-                    Eliminar
+                    Delete
                 </button>
             </div>
         </div>

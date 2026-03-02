@@ -16,7 +16,8 @@ function ClickablePicture(props)
         boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)'
     }
 
-    return (
+    return (<>
+        <h2>Clickable Picture</h2>
         <div style={ divStyle }>
             <img
                 src={ isClicked ? imgClicked : img }
@@ -28,7 +29,7 @@ function ClickablePicture(props)
                 }}
             ></img>
         </div>
-    )
+    </>)
 }
 
 export default ClickablePicture

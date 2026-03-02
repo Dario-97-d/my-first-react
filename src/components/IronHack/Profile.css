@@ -6,7 +6,6 @@
     display: flex;
     border: 0.25rem solid gray;
     padding: 0.25rem;
-    margin: 1rem;
     gap: 0.5rem;
 }
 
@@ -23,6 +22,6 @@
 }
 
 .profile-info {
-    width: 24rem;
+    width: 9rem;
     text-align: left;
 }

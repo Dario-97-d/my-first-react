@@ -12,7 +12,7 @@ export default function AddProduct({ addProduct })
 
         if (!values.name || !values.category || !values.price)
         {
-            setMessage('Os campos Nome, Categoria e Preço são necessários.')
+            setMessage('The fields Name, Category and Price are required.')
             setTimeout(() => setMessage(''), 3000)
             return
         }
@@ -26,33 +26,33 @@ export default function AddProduct({ addProduct })
 
         e.target.reset()
         
-        setMessage('Produto adido!')
+        setMessage('Added product!')
         setTimeout(() => setMessage(''), 3000)
     }
 
     return (<>
     
-        <h2>Novo Produto</h2>
+        <h2>New Product</h2>
 
         <form onSubmit={handleSubmit} className={styles['form-new-product']}>
 
             <div style={{ display: 'contents' }}>
-                <label htmlFor='name'>Nome</label>
+                <label htmlFor='name'>Name</label>
                 <input type="text" id='name' name="name" />
             </div>
 
             <div style={{ display: 'contents' }}>
-                <label htmlFor='category'>Categoria</label>
+                <label htmlFor='category'>Category</label>
                 <input type="text" id='category' name="category" />
             </div>
 
             <div style={{ display: 'contents' }}>
-                <label htmlFor='price'>Preço</label>
+                <label htmlFor='price'>Price</label>
                 <input type="number" id='price' name="price" />
             </div>
 
             <div style={{ display: 'contents' }}>
-                <label htmlFor='inStock'>Em stock</label>
+                <label htmlFor='inStock'>In stock</label>
                 <input type="checkbox" id='inStock' name="inStock" />
             </div>
 
@@ -60,7 +60,7 @@ export default function AddProduct({ addProduct })
                 {message}
             </div>
 
-            <button type='submit' style={{ gridColumn: '1 / span 2' }}>Adir</button>
+            <button type='submit' style={{ gridColumn: '1 / span 2' }}>Add</button>
 
         </form>
 
