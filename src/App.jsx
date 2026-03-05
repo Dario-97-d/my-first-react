@@ -14,25 +14,81 @@ function App() {
   const [showIronHack, setShowIronHack] = useState(false);
   const [showProducts, setShowProducts] = useState(false);
 
+  const toggleSession1 = () => setShowSession1(!showSession1);
+  const toggleSession2 = () => setShowSession2(!showSession2);
+  const toggleSession3 = () => setShowSession3(!showSession3);
+  const toggleIronHack = () => setShowIronHack(!showIronHack);
+  const toggleProducts = () => setShowProducts(!showProducts);
+
+  const hideAll = () => {
+    setShowSession1(false);
+    setShowSession2(false);
+    setShowSession3(false);
+    setShowIronHack(false);
+    setShowProducts(false);
+  }
+
+  const isAnySectionOpen = () => {
+    return [
+      showSession1,
+      showSession2,
+      showSession3,
+      showIronHack,
+      showProducts
+    ].some((isShow) => isShow);
+  }
+
   return (<>
 
-  <h1>Dário Dias</h1>
-  <h2>React Fundamentals Training</h2>
+  <header>
+    <h1>Dário Dias</h1>
+    <h2>React Fundamentals Training</h2>
+  </header>
 
-  <h2><a href="#" onClick={() => setShowSession1(!showSession1)}>-- Session 1 --</a></h2>
-  {showSession1 && <Session1 />}
+  <main className={isAnySectionOpen() ? 'main-expanded' : ''}>
 
-  <h2><a href="#" onClick={() => setShowSession2(!showSession2)}>-- Session 2 --</a></h2>
-  {showSession2 && <Session2 />}
+    <h3><a onClick={toggleSession1}>-- Session 1 --</a></h3>
+    {showSession1 &&
+      <section id="session-1">
+        <Session1 />
+      </section>
+    }
 
-  <h2><a href="#" onClick={() => setShowSession3(!showSession3)}>-- Session 3 --</a></h2>
-  {showSession3 && <Session3 />}
+    <h3><a onClick={toggleSession2}>-- Session 2 --</a></h3>
+    {showSession2 &&
+      <section id="session-2">
+        <Session2 />
+      </section>
+    }
 
-  <h2><a href="#" onClick={() => setShowIronHack(!showIronHack)}>-- IronHack --</a></h2>
-  {showIronHack && <IronHack />}
+    <h3><a onClick={toggleSession3}>-- Session 3 --</a></h3>
+    {showSession3 &&
+      <section id="session-3">
+        <Session3 />
+      </section>
+    }
 
-  <h2><a href="#" onClick={() => setShowProducts(!showProducts)}>-- Products --</a></h2>
-  {showProducts && <Products />}
+    <h3><a onClick={toggleIronHack}>-- IronHack --</a></h3>
+    {showIronHack &&
+      <section id="iron-hack">
+        <IronHack />
+      </section>
+    }
+
+    <h3><a onClick={toggleProducts}>-- Products --</a></h3>
+    {showProducts &&
+      <section id="products">
+        <Products />
+      </section>
+    }
+
+  </main>
+
+  <footer className={ (isAnySectionOpen() ? '' : 'invisible') }>
+    <button onClick={hideAll} disabled={ !isAnySectionOpen() }>
+      Hide All
+    </button>
+  </footer>
 
   </>
   )
