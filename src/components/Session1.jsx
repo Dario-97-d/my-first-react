@@ -6,10 +6,9 @@ export default function Session1()
 {
     return (<>
 
-        <UserCard />
         <Greeting />
+        <UserCard />
         <Product />
-      
-        </>
-        )
+
+    </>)
 }

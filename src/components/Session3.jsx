@@ -8,17 +8,15 @@ import pic2 from  './../assets/images/chess-2.png'
 
 export default function Session3()
 {
-    return (
-        <>
-
-        <Oranges />
+    return (<>
 
         <Orangitas />
+
+        <Oranges />
 
         <FruitBasket />
 
         <ClickablePicture img={pic1} imgClicked={pic2} />
 
-        </>
-    )
+    </>)
 }
