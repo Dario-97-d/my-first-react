@@ -6,21 +6,17 @@ const UserCard = () => {
         <>
         
         <div className="user-card">
-
             <div className='user-card-header'>
+                <img src={user.image} />
 
-            <img src={user.image} />
-
-            <h1 className='user-name'>
-                {user.name}
-            </h1>
-
+                <h2 className='user-name'>
+                    {user.name}
+                </h2>
             </div>
 
             <div className="user-info">
-            Age : {user.age} | {user.position}
+                Age : {user.age} | {user.position}
             </div>
-
         </div>
 
         </>

@@ -85,14 +85,16 @@ button:focus-visible {
   border: 1px solid white;
   border-radius: 24px;
   padding: 36px;
+  margin: 1rem auto;
 }
 
 .user-card-header{
   display: flex;
-  flex-direction: row;
+  flex-flow: row wrap;
   align-items: center;
   justify-content: center;
   gap: 20px;
+  padding-bottom: 15px;
   border-bottom: 1px solid white;
 }
 
