@@ -2,16 +2,17 @@ import { useState } from 'react'
 
 export default function Oranges()
 {
-    const [ oranges, setOranges ] = useState(5);
+    const [ oranges, setOranges ] = useState(0);
+    const [ eatenOranges, setEatenOranges ] = useState(0);
 
     const hasBugs = oranges === 'bugs';
 
-    const incrementOranges = () => {
-        // Cannot increment if it has bugs.
+    const addOranges = () => {
+        // Cannot add if it has bugs.
         if (oranges === 'bugs') return;
         
         // 10% chance of oranges getting bugs.
-        if (Math.random() < 0.1) {
+        if (Math.random() < 0.25) {
             setOranges('bugs')
         }
         else {
@@ -23,29 +24,46 @@ export default function Oranges()
         // Cannot eat orange if it has bugs.
         if (oranges === 'bugs') return;
 
+        // Cannot eat orange if there ain't any.
+        if (oranges === 0) return;
+
         setOranges(oranges - 1)
+        setEatenOranges(eatenOranges + 1)
     }
 
     const clearOranges = () => {
-        setOranges(5)
+        setOranges(0)
     }
 
     const buttonStyles = {
-        increment: { backgroundColor: hasBugs ? 'gray' : 'green', color: 'white' },
-        eat: { backgroundColor: hasBugs ? 'gray' : 'red', color: 'white' },
-        clear: { backgroundColor: hasBugs ? 'blue' : 'gray', color: 'white' },
+        add: {
+            backgroundColor: hasBugs ? 'gray' : 'green',
+            color: 'white',
+            transition: 'background-color 0.3s ease-in-out'
+        },
+        eat: {
+            backgroundColor: hasBugs || oranges < 1 ? 'gray' : 'red',
+            color: 'white',
+            transition: 'background-color 0.3s ease-in-out'
+        },
+        clear: {
+            backgroundColor: hasBugs ? 'blue' : 'gray',
+            color: 'white',
+            transition: 'background-color 0.3s ease-in-out'
+        },
     };
 
-    return (
-        <>
-        <h3>Orange Management v1</h3>
-        <div style={{ display: 'flex', gap: '1em', justifyContent: 'center', margin: '1rem' }}>
-            <p>{ hasBugs ? '🐛🐛🐛' : oranges + ' 🍊' }</p>
-            
-            <button onClick={incrementOranges} style={buttonStyles.increment} disabled={hasBugs}>Increment</button>
-            <button onClick={eatOrange} style={buttonStyles.eat} disabled={hasBugs}>Eat</button>
+    return (<>
+        <h3>"Bugless" Oranges</h3>
+
+        <p>{ hasBugs ? '🐛🐛🐛' : oranges + ' 🍊' }</p>
+
+        <div style={{ display: 'flex', flexFlow: 'row wrap', justifyContent: 'center', alignItems: 'center', gap: '1rem', margin: '1rem' }}>
+            <button onClick={addOranges} style={buttonStyles.add} disabled={hasBugs}>Add</button>
+            <button onClick={eatOrange} style={buttonStyles.eat} disabled={ hasBugs || oranges < 1 }>Eat</button>
             <button onClick={clearOranges} style={buttonStyles.clear} disabled={!hasBugs}>Clear</button>
         </div>
-        </>
-    )
+
+        <h4>Eaten oranges: {eatenOranges}</h4>
+    </>)
 }
