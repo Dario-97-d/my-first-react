@@ -1,5 +1,5 @@
 import product from '../../assets/product.json'
-import Rating from '../session2/Rating'
+import Rating from '../session2/Ratings/Rating'
 import styles from './Product.module.css'
 
 const ProductCard = () => {

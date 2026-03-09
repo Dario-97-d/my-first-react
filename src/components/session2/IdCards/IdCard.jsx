@@ -3,14 +3,14 @@ import './IdCard.css'
 function IdCard(props)
 {
     return (
-        
+
         <div className="idcard-frame">
             <div className="idcard-image">
                 <img src={props.picture} />
             </div>
 
             <div className="idcard-info">
-                
+
                 <div className="idcard-first-name">
                     <span><b>First name:</b> {props.firstName}</span>
                 </div>
@@ -30,7 +30,7 @@ function IdCard(props)
                 <div className="idcard-birth">
                     <span><b>Birth:</b> {props.birth.toDateString()}</span>
                 </div>
-                
+
             </div>
         </div>
     )

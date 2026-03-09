@@ -1,4 +1,4 @@
-import Rating from './Rating'
+import Rating from '../Ratings/Rating'
 
 function DriverCard(props)
 {
@@ -30,17 +30,17 @@ function DriverCard(props)
 
     return (
         <div style={divStyle}>
-            <div style={{display: 'flex', gap: '1rem'}}>
-                <div style={{width: '5rem', marginLeft: '5rem'}}>
+            <div style={{display: 'flex', flexFlow: 'row wrap', justifyContent: 'center', gap: '1rem'}}>
+                <div style={{width: '5rem'}}>
                     <img src={img} style={imgStyle} />
                 </div>
 
-                <div style={{display: 'flex', flexDirection: 'column', alignItems: 'flex-start', lineHeight: '1.2', width: '15rem'}}>
-                    
+                <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', lineHeight: '1.2'}}>
+
                     <div style={{fontWeight: 'bold', fontSize: '1.25rem'}}>{name}</div>
-                    
+
                     <Rating>{rating}</Rating>
-                    
+
                     <div style={{fontSize: '0.9em'}}>{car.model} - {car.licensePlate}</div>
 
                 </div>

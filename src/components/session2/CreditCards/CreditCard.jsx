@@ -19,24 +19,24 @@ function CreditCard(props)
 
     return (
         <div className={ styles.container } style={ { backgroundColor: `${bgColor}`, color: `${color}` } }>
-            
+
             <div className={ styles['card-type'] }>
                 <CreditCardType type={type} />
             </div>
-            
+
             <div className={ styles['card-number'] }>
                 <span>••••</span>
                 <span>••••</span>
                 <span>••••</span>
                 <span>{number.slice(-4)}</span>
             </div>
-            
+
             <div className={ styles['card-info'] }>
-                
+
                 <div style={{display: 'flex', gap: '0.5rem'}}>
-                    
+
                     <span>Expires {expiryDate}</span>
-                    
+
                     <span>{bank}</span>
 
                 </div>

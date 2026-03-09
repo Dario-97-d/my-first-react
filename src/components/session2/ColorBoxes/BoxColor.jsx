@@ -5,7 +5,7 @@ function BoxColor(props)
     const rgbHex = `#${r.toString(16).padStart(2, '0')}${g.toString(16).padStart(2, '0')}${b.toString(16).padStart(2, '0')}`
 
     const divStyle = {
-        width: '50rem',
+        maxWidth: '50rem',
         height: '10rem',
         margin: '1rem auto',
         backgroundColor: rgbDec,
@@ -17,12 +17,12 @@ function BoxColor(props)
         fontSize: '2rem'
     }
 
-    return (
+    return (<>
         <div style={divStyle}>
             <div>{rgbDec}</div>
             <div>{rgbHex}</div>
         </div>
-    )
+    </>)
 }
 
 export default BoxColor
