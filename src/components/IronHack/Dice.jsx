@@ -33,22 +33,23 @@ function Dice()
         setTimeout(() => {
             setDiceFace(getRandomDiceFace())
             setDisabled(false)
-        }, 1000)
+        }, 500)
     }
 
-    return (
-        <div style={{ margin: '2rem' }}>
-            <img
-                src={currentDiceFace}
-                onClick={handleClick}
-                style={{
-                    height: '10rem',
-                    width: '10rem',
-                    cursor: isDisabled ? 'default' : 'pointer' }}
-                disabled={isDisabled}
-            />
-        </div>
-    )
+    return (<>
+        <h3>Random Dice Face</h3>
+
+        <img
+            src={currentDiceFace}
+            onClick={handleClick}
+            style={{
+                margin: '1rem',
+                height: '10rem',
+                width: '10rem',
+                cursor: isDisabled ? 'default' : 'pointer' }}
+            disabled={isDisabled}
+        />
+    </>)
 }
 
 export default Dice

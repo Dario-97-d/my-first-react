@@ -46,6 +46,14 @@ section {
   padding: 1rem;
 }
 
+section > h3 {
+  margin-top: 1.5rem;
+}
+
+section > h3:first-child {
+  margin: 0;
+}
+
 footer {
   padding: 1rem;
   transition: opacity 1s ease-in, visibility 0s;

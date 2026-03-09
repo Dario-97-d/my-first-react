@@ -10,14 +10,16 @@ function LikeButton()
         setLikes(likes + 1);
     };
 
-    return (
+    return (<>
+        <h3>Multicolored Likes</h3>
+
         <button
             style={{ backgroundColor: colors[likes % colors.length], margin: '2rem' }}
             onClick={handleClick}
         >
             {likes} Likes
         </button>
-    )
+    </>)
 }
 
 export default LikeButton
