@@ -32,8 +32,7 @@ export default function Session2()
         <Greetings lang="de">Ludwig</Greetings>
         <Greetings lang="fr">François</Greetings>
 
-        <Random min={1} max={6} />
-        <Random min={1} max={100} />
+        <Random />
 
         <BoxColor r={0} g={127} b={127} />
         <BoxColor r={0} g={127} b={255} />
