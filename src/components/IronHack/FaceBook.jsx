@@ -21,6 +21,10 @@ function FaceBook()
     const [selectedCountry, setSelectedCountry] = useState('All')
     const [clickedProfile, setClickedProfile] = useState('')
 
+    const setClicked = (profileImg) => {
+      setClickedProfile(clickedProfile === profileImg ? '' : profileImg)
+    }
+
     return (<>
 
         <div style={{ backgroundColor: 'whitesmoke', padding: '1rem 0', maxWidth: '40rem', margin: '0 auto' }}>
@@ -33,7 +37,7 @@ function FaceBook()
             <div style={{ display: 'flex', flexFlow: 'row wrap', justifyContent: 'center', gap: '0.5rem' }}>
                 {profiles
                 .filter(profile => selectedCountry === 'All' || profile.country === selectedCountry)
-                .map(profile => <Profile key={profile.img} profile={profile} isClicked={clickedProfile === profile.img} setClicked={setClickedProfile}  />)}
+                .map(profile => <Profile key={profile.img} profile={profile} isClicked={clickedProfile === profile.img} setClicked={setClicked}  />)}
             </div>
         </div>
 
