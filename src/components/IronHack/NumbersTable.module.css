@@ -1,10 +1,26 @@
+.wrapper {
+  margin: 1rem auto;
+  max-width: 25rem;
+  min-width: 5.75rem;
+  padding: 0.5rem;
+  padding-right: 0;
+  background-color: white;
+  display: flex;
+}
+
+.pan-for-resize {
+  margin: -0.1rem 0.1rem;
+  cursor: col-resize;
+  user-select: none;
+  padding: 0.05rem;
+  border-left: 0.1rem solid gray;
+  border-right: 0.1rem solid gray;
+}
+
 .div-table {
-    margin: 2rem auto;
+    flex: 1;
     display: flex;
     flex-flow: row wrap;
-    max-width: 25rem;
-    background-color: white;
-    padding: 0.5rem;
 }
 
 .div-number {
