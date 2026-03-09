@@ -4,6 +4,11 @@ import styles from './Product.module.css'
 
 const ProductCard = () => {
 
+    const onClickAddToCart = () => {
+      alert('Watch for the cart!');
+      alert('Just kidding...');
+    }
+
     return (
         <div style={{ backgroundColor: 'rgba(255, 255, 255, 0.5)' }}>
             <div className={ styles['card-background'] }>
@@ -33,7 +38,7 @@ const ProductCard = () => {
                     </div>
 
                     <div className={ styles['lower-card'] }>
-                        <button className={ styles['btn-add-to-cart'] }>Add to Cart</button>
+                        <button className={ styles['btn-add-to-cart'] } onClick={onClickAddToCart}>Add to Cart</button>
                     </div>
                 </div>
             </div>
