@@ -3,15 +3,14 @@ import './Profile.css'
 
 function Profile({ profile, isClicked, setClicked })
 {
-    return (
-        
+    return (<>
         <div className="profile-frame">
             <div className="profile-image">
                 <img src={profile.img} alt={'Profile picture'} onClick={() => setClicked(profile.img)} />
             </div>
 
-            <div className="profile-info" style={{ display: isClicked ? 'block' : 'none' }}>
-                
+            <div className="profile-info" style={{ display: isClicked ? 'flex' : 'none', flexDirection: 'column', gap: '0.25rem' }}>
+
                 <div className="profile-first-name">
                     <span><b>First name:</b> {profile.firstName}</span>
                 </div>
@@ -27,10 +26,10 @@ function Profile({ profile, isClicked, setClicked })
                 <div className="profile-type">
                     <span><b>Type:</b> {profile.isStudent ? 'Student' : 'Teacher'}</span>
                 </div>
-                
+
             </div>
         </div>
-    )
+    </>)
 }
 
 export default Profile
