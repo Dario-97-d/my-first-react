@@ -10,7 +10,7 @@ function ClickablePicture(props)
     }
 
     const divStyle = {
-        margin: '2rem',
+        margin: '1rem',
         padding: '2rem',
         backgroundColor: 'rgba(255,255,255,0.5)',
         boxShadow: '0 4px 12px rgba(0, 0, 0, 0.15)'
@@ -23,6 +23,9 @@ function ClickablePicture(props)
                 src={ isClicked ? imgClicked : img }
                 onClick={handleClick}
                 style={{
+                    maxHeight: '100%',
+                    maxWidth: '100%',
+                    width: '20rem',
                     boxShadow: '0 4px 12px rgba(0, 0, 0, 0.2)',
                     borderRadius: '0.5em',
                     cursor: 'pointer'
