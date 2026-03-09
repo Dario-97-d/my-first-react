@@ -32,12 +32,12 @@ function Products()
         }))
     }
 
-    return (
-        <div className={styles['products']}>
+    return (<>
+        <div className={styles['product-store']}>
             
             <AddProduct addProduct={addProduct} />
 
-            <div className='products'>
+            <div className={styles['products']}>
                 {products.map(p => <Product
                     key={p.id}
                     product={p}
@@ -48,7 +48,7 @@ function Products()
             </div>
 
         </div>
-    )
+    </>)
 }
 
 export default Products

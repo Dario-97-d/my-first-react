@@ -32,7 +32,7 @@ export default function AddProduct({ addProduct })
 
     return (<>
     
-        <h2>New Product</h2>
+        <h3>New Product</h3>
 
         <form onSubmit={handleSubmit} className={styles['form-new-product']}>
 
@@ -56,11 +56,11 @@ export default function AddProduct({ addProduct })
                 <input type="checkbox" id='inStock' name="inStock" />
             </div>
 
-            <div style={{ gridColumn: '1 / span 2' }}>
+            <div style={{ gridColumn: '1 / -1' }}>
                 {message}
             </div>
 
-            <button type='submit' style={{ gridColumn: '1 / span 2' }}>Add</button>
+            <button type='submit' style={{ gridColumn: '1 / -1' }}>Add</button>
 
         </form>
 

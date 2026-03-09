@@ -5,3 +5,9 @@
     width: min-content;
     margin: 1rem 0;
 }
+
+@media (max-width: 25rem) {
+    .form-new-product {
+        grid-template-columns: 1fr;
+    }
+}

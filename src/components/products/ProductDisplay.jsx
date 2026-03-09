@@ -1,3 +1,5 @@
+import styles from '.././Products.module.css'
+
 function ProductDisplay(props)
 {
     const { product: {
@@ -8,9 +10,11 @@ function ProductDisplay(props)
 
     return (<>
 
-    <h3 className='name'>{name}</h3>
-    <h3 className='price'>{price}</h3>
-    <h3 className='category'>{category}</h3>
+        <div style={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
+            <h4 className={styles['name']} style={{ flex: '1', display: 'flex', alignItems: 'center' }}>{name}</h4>
+            <h4 className={styles['price']}>{price}</h4>
+            <h4 className={styles['category']}>{category}</h4>
+        </div>
     
     </>)
 }

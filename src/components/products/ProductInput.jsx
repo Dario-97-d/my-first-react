@@ -29,23 +29,23 @@ function ProductInput(props)
     }
 
     return (<>
-    
-        <form onSubmit={handleSubmit} className={styles['form-edit-product']}>
-            <input onChange={(e) => setEditName(e.target.value)} type='text' name='name' value={editName} />
+        <div style={{ position: 'relative' }}>
+            <form onSubmit={handleSubmit} className={styles['form-edit-product']}>
+                <input onChange={(e) => setEditName(e.target.value)} type='text' name='name' value={editName} />
 
-            <input onChange={(e) => setEditPrice(e.target.value)} type='number' name='price' value={editPrice} />
+                <input onChange={(e) => setEditPrice(e.target.value)} type='number' name='price' value={editPrice} />
 
-            <input onChange={(e) => setEditCategory(e.target.value)} type='text' name='category' value={editCategory} />
+                <input onChange={(e) => setEditCategory(e.target.value)} type='text' name='category' value={editCategory} />
 
-            <div className={styles['buttons']}>
-                <button type="submit" style={{ backgroundColor: 'blue', flex: '1' }}>
-                    Save
-                </button>
+                <div className={styles['buttons']}>
+                    <button type="submit" style={{ backgroundColor: 'blue', flex: '1' }}>
+                        Save
+                    </button>
 
-                <button onClick={cancelEdit}>❌</button>
-            </div>
-        </form>
-    
+                    <button onClick={cancelEdit}>❌</button>
+                </div>
+            </form>
+        </div>
     </>)
 }
 
