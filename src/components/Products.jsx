@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 import styles from './Products.module.css'
 import productsJson from './../data/products.json'
@@ -6,14 +6,23 @@ import productsJson from './../data/products.json'
 import AddProduct from './products/AddProduct'
 import Product from './products/Product'
 
+const STORAGE_KEY = 'products'
+
 function Products()
 {
-    const [products, setProducts] = useState(productsJson)
+    const [products, setProducts] = useState(() => {
+      const stored = localStorage.getItem(STORAGE_KEY)
+      return stored ? JSON.parse(stored) : productsJson
+    })
+
+    useEffect(() => {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(products))
+    }, [products])
 
     const addProduct = (newProduct) => {
         setProducts([...products, {
             ...newProduct,
-            id: Math.max(...products.map(p => p.id)) + 1
+            id: products.length ? Math.max(...products.map(p => p.id)) + 1 : 1
         }])
     }
 
@@ -32,6 +41,11 @@ function Products()
         }))
     }
 
+    const resetProducts = () => {
+      localStorage.removeItem(STORAGE_KEY)
+      setProducts(productsJson)
+    }
+
     return (<>
         <div className={styles['product-store']}>
             
@@ -46,6 +60,8 @@ function Products()
                     updateProduct={updateProduct}
                 />)}
             </div>
+
+            <button onClick={resetProducts}>Reset</button>
 
         </div>
     </>)
