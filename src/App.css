@@ -1,9 +1,16 @@
+:root {
+  /* main padding 1.5rem, main content 5 * 3rem */
+  --main-height: calc( 1.5rem  + (5 * 3rem));
+  /* root padding 4rem, header height 12rem, footer height 3.5rem, main box-shadow 1rem */
+  --main-height-expanded: calc(100vh - 4rem - 12rem - 3.5rem - 1rem);
+}
+
 #root {
   min-height: 100dvh;
   max-width: 100vw;
   width: 64rem;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 0 1rem;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -18,8 +25,7 @@ header {
 main {
   overflow: auto;
   scrollbar-width: none;
-  /* main padding 1.5rem, main content 5 * 3rem */
-  height: calc( 1.5rem  + (5 * 3rem));
+  height: var(--main-height);
   padding: 0.75rem;
   border: 0 solid transparent;
   border-radius: 0.5rem;
@@ -32,8 +38,7 @@ main {
 }
 
 main.main-expanded {
-  /* root padding 4rem, header height 12rem, footer height 3.5rem, main box-shadow 1rem */
-  height: calc(100vh - 4rem - 12rem - 3.5rem - 1rem);
+  height: var(--main-height-expanded);
   border-top: 0.5rem solid rgba(255,255,255,0.75);
   border-bottom: 0.5rem solid rgba(255,255,255,0.75);
 }
