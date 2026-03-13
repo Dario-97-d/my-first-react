@@ -27,8 +27,8 @@ export default function Oranges()
         // Cannot eat orange if there ain't any.
         if (oranges === 0) return;
 
-        setOranges(oranges - 1)
-        setEatenOranges(eatenOranges + 1)
+        setEatenOranges(eatenOranges + oranges)
+        setOranges(0)
     }
 
     const clearOranges = () => {
