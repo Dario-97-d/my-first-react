@@ -37,7 +37,7 @@ function Product(props)
                         {product.inStock ? 'In' : 'No'} Stock
                     </button>
                 
-                    <button style={{ flex: '1', backgroundColor: '#7f0000' }} onClick={() => deleteProduct(product.id)}>
+                    <button style={{ flex: '1', backgroundColor: '#7f0000' }} onClick={() => deleteProduct(product)}>
                         Delete
                     </button>
                 </div>

@@ -26,8 +26,10 @@ function Products()
         }])
     }
 
-    const deleteProduct = (id) => {
-        setProducts(products.filter(p => p.id !== id))
+    const deleteProduct = (product) => {
+        if (confirm(`Delete ${product.name}?`)) {
+            setProducts(products.filter(p => p.id !== product.id))
+        }
     }
 
     const toggleStock = (id) => {
