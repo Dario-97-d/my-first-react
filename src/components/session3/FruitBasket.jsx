@@ -24,6 +24,13 @@ export default function FruitBasket()
         setFruits(fruits.slice(0, -1))
     }
 
+    const randomizeAll = () => {
+        setFruits(fruits.map(f => ({
+            ...f,
+            kind: randomFruitKind()
+        })))
+    }
+
     const switchFruit = (id) => {
         setFruits(fruits.map(f => {
             if (f.id !== id) return f
@@ -53,7 +60,7 @@ export default function FruitBasket()
             backgroundColor: areThereFruits ? 'red' : 'gray',
             color: 'white',
             transition: 'background-color 0.3s ease-in-out'
-        },
+        }
     }
 
     const fruitButtonHover = (btnId) => {
@@ -65,10 +72,10 @@ export default function FruitBasket()
     }
 
     return (
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', margin: '2rem' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1rem', margin: '2rem' }}>
             <div style={{ fontSize: '1.5rem', fontWeight: 'bold' }}>Random Fruits</div>
 
-            <div style={{ margin: '1rem', width: '20rem', flexWrap: 'wrap', display: 'flex', gap: '1em', justifyContent: 'center' }}>
+            <div style={{ width: '20rem', display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '1rem' }}>
                 {fruits.map(f => (
                     <button
                         key={f.id}
@@ -87,6 +94,8 @@ export default function FruitBasket()
                 <button onClick={addFruit} style={buttonStyles.add}>Add</button>
                 <button onClick={eatFruit} style={buttonStyles.eat} disabled={!areThereFruits}>Eat</button>
             </div>
+            
+            <button onClick={randomizeAll}>Randomize All</button>
         </div>
     )
 }
