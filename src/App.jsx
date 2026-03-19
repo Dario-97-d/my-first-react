@@ -17,33 +17,18 @@ function App() {
   const [headerHeight, setHeaderHeight] = useState('auto');
   const [mainHeight, setMainHeight] = useState('auto');
 
-  const [showSession1, setShowSession1] = useState(false);
-  const [showSession2, setShowSession2] = useState(false);
-  const [showSession3, setShowSession3] = useState(false);
-  const [showIronHack, setShowIronHack] = useState(false);
-  const [showProducts, setShowProducts] = useState(false);
+  const [showSections, setShowSections] = useState({});
 
-  const toggleSession1 = () => setShowSession1(!showSession1);
-  const toggleSession2 = () => setShowSession2(!showSession2);
-  const toggleSession3 = () => setShowSession3(!showSession3);
-  const toggleIronHack = () => setShowIronHack(!showIronHack);
-  const toggleProducts = () => setShowProducts(!showProducts);
+  const toggleSection = (section) => setShowSections(prev => {
+    return {
+      ...prev,
+      [section]: !prev[section]
+    }
+  });
 
-  const hideAll = () => {
-    setShowSession1(false);
-    setShowSession2(false);
-    setShowSession3(false);
-    setShowIronHack(false);
-    setShowProducts(false);
-  }
+  const hideAll = () => setShowSections({});
 
-  const isExpanded = [
-    showSession1,
-    showSession2,
-    showSession3,
-    showIronHack,
-    showProducts
-  ].some((isShow) => isShow);
+  const isExpanded = Object.values(showSections).some(isShow => isShow);
 
   useLayoutEffect(() => {
     // -- Adjust layout on window resize and when there is/isn't any section open --
@@ -135,36 +120,36 @@ function App() {
     className={ isExpanded ? 'main-expanded' : '' }
   >
 
-    <h3><a onClick={toggleSession1}>-- Session 1 --</a></h3>
-    {showSession1 &&
+    <h3><a onClick={() => toggleSection('session1')}>-- Session 1 --</a></h3>
+    {showSections.session1 &&
       <section id="session-1">
         <Session1 />
       </section>
     }
 
-    <h3><a onClick={toggleSession2}>-- Session 2 --</a></h3>
-    {showSession2 &&
+    <h3><a onClick={() => toggleSection('session2')}>-- Session 2 --</a></h3>
+    {showSections.session2 &&
       <section id="session-2">
         <Session2 />
       </section>
     }
 
-    <h3><a onClick={toggleSession3}>-- Session 3 --</a></h3>
-    {showSession3 &&
+    <h3><a onClick={() => toggleSection('session3')}>-- Session 3 --</a></h3>
+    {showSections.session3 &&
       <section id="session-3">
         <Session3 />
       </section>
     }
 
-    <h3><a onClick={toggleIronHack}>-- IronHack --</a></h3>
-    {showIronHack &&
+    <h3><a onClick={() => toggleSection('ironHack')}>-- IronHack --</a></h3>
+    {showSections.ironHack &&
       <section id="iron-hack">
         <IronHack />
       </section>
     }
 
-    <h3><a onClick={toggleProducts}>-- Products --</a></h3>
-    {showProducts &&
+    <h3><a onClick={() => toggleSection('products')}>-- Products --</a></h3>
+    {showSections.products &&
       <section id="products">
         <Products />
       </section>
