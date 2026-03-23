@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, Fragment } from 'react'
 import useAdaptiveLayout from './utils/useAdaptiveLayout'
 import './App.css'
 
@@ -9,6 +9,14 @@ import Session2 from './components/Session2'
 import Session3 from './components/Session3'
 import IronHack from './components/IronHack'
 import Products from './components/Products'
+
+const SECTIONS = [
+  { key: 'session1',  label: 'Session 1',  Component: Session1  },
+  { key: 'session2',  label: 'Session 2',  Component: Session2  },
+  { key: 'session3',  label: 'Session 3',  Component: Session3  },
+  { key: 'ironHack',  label: 'IronHack',   Component: IronHack  },
+  { key: 'products',  label: 'Products',   Component: Products  },
+]
 
 export default function App()
 {
@@ -70,40 +78,16 @@ export default function App()
       className={ isExpanded ? 'main-expanded' : '' }
     >
 
-      <h3><a onClick={() => toggleSection('session1')}>-- Session 1 --</a></h3>
-      {showSections.session1 &&
-        <AnimatedSection id="session-1">
-          <Session1 />
-        </AnimatedSection>
-      }
-
-      <h3><a onClick={() => toggleSection('session2')}>-- Session 2 --</a></h3>
-      {showSections.session2 &&
-        <AnimatedSection id="session-2">
-          <Session2 />
-        </AnimatedSection>
-      }
-
-      <h3><a onClick={() => toggleSection('session3')}>-- Session 3 --</a></h3>
-      {showSections.session3 &&
-        <AnimatedSection id="session-3">
-          <Session3 />
-        </AnimatedSection>
-      }
-
-      <h3><a onClick={() => toggleSection('ironHack')}>-- IronHack --</a></h3>
-      {showSections.ironHack &&
-        <AnimatedSection id="iron-hack">
-          <IronHack />
-        </AnimatedSection>
-      }
-
-      <h3><a onClick={() => toggleSection('products')}>-- Products --</a></h3>
-      {showSections.products &&
-        <AnimatedSection id="products">
-          <Products />
-        </AnimatedSection>
-      }
+      {SECTIONS.map(({ key, label, Component }) => (
+        <Fragment key={key}>
+          <h3><a onClick={() => toggleSection(key)}>-- {label} --</a></h3>
+          {showSections[key] &&
+            <AnimatedSection id={key}>
+              <Component />
+            </AnimatedSection>
+          }
+        </Fragment>
+      ))}
 
     </main>
 
