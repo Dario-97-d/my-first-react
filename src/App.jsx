@@ -22,12 +22,32 @@ export default function App()
 
   const [showSections, setShowSections] = useState({});
 
-  const toggleSection = (section) => setShowSections(prev => {
-    return {
-      ...prev,
-      [section]: !prev[section]
-    }
-  });
+  const toggleSection = (section) => {
+    const isOpening = !showSections[section];
+
+    // Update state.
+    setShowSections(prev => {
+      return {
+        ...prev,
+        [section]: !prev[section]
+      }
+    });
+
+    // -- Scroll down a nudge, if opening section Products --
+
+    if (!isOpening || section !== 'products') return;
+
+    const main = mainRef.current;
+    if (!main) return;
+
+    // Request scroll animation for when the section is mounted.
+    requestAnimationFrame(() => {
+      main.scrollBy({
+        top: 32,
+        behavior: 'smooth'
+      });
+    });
+  };
 
   const hideAll = () => setShowSections({});
 
