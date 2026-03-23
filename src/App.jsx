@@ -38,8 +38,8 @@ function App() {
     // Debounce the call to adjustLayout to prevent unnecessary calculations on drag resizing.
     const debouncedAdjust = debounce(adjustLayout, 50);
 
-    // Make the layout adjustment work on window resize.
-    // It needs a fresh listener on each effect run
+    // -- Make the layout adjustment work on window resize --
+    // It needs a fresh listener on each useEffect run
     // because adjustLayout relies on the effect from the change of state of isExpanded.
     window.addEventListener('resize', debouncedAdjust);
 
@@ -60,6 +60,21 @@ function App() {
     const viewportHeight = window.innerHeight;
     let newMainHeight;
     let newHeaderHeight;
+
+    // -- Get natural height of header --
+    // When getting header.scrollHeight,
+    // the bottom padding may get clipped in Chromium-based browsers.
+    // This happens when an element's content overflows its scaled down height.
+
+    // Get vertical padding of header.
+    const headerComputedStyle = window.getComputedStyle(header);
+    const headerVerticalPadding = parseFloat(headerComputedStyle.paddingTop) + parseFloat(headerComputedStyle.paddingBottom);
+
+    // Get sum of header's children.
+    const headerChildren = Array.from(header.children);
+    const headerChildrenHeight = headerChildren.reduce((sum, el) => sum + el.scrollHeight, 0);
+
+    const headerNaturalHeight = headerVerticalPadding + headerChildrenHeight;
 
     if (isExpanded) {
       // -- Set main height as the reaminder of header and footer, but minimum 50vh --
@@ -87,6 +102,8 @@ function App() {
       const h3s = Array.from(main.querySelectorAll(':scope > h3'));
       const h3sHeight = h3s.reduce((sum, el) => sum + el.scrollHeight, 0);
 
+      // -- Determine final values for the new heights --
+
       // Prevent scaling down the header too much.
       newMainHeight = Math.min(
         0.5 * viewportHeight,
@@ -94,14 +111,14 @@ function App() {
 
       // Prevent header from scaling upper than 1.
       newHeaderHeight = Math.min(
-        header.scrollHeight,
+        headerNaturalHeight,
         viewportHeight - newMainHeight - footer.scrollHeight);
     }
 
     // Set final heights of header and main.
     setMainHeight(newMainHeight);
     setHeaderHeight(newHeaderHeight);
-    setHeaderScale(newHeaderHeight / header.scrollHeight);
+    setHeaderScale(newHeaderHeight / headerNaturalHeight);
   }
 
   return (<>
