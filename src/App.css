@@ -42,6 +42,12 @@ main > h3 > a {
 
 section {
   padding: 1rem;
+  opacity: 0;
+  transition: opacity 2s ease;
+}
+
+section.opening {
+  opacity: 1;
 }
 
 section > h3 {

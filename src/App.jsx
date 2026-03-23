@@ -2,6 +2,8 @@ import { useRef, useState, useLayoutEffect } from 'react'
 import debounce from './utils/debounce'
 import './App.css'
 
+import AnimatedSection from './AnimatedSection'
+
 import Session1 from './components/Session1'
 import Session2 from './components/Session2'
 import Session3 from './components/Session3'
@@ -140,37 +142,37 @@ export default function App()
 
       <h3><a onClick={() => toggleSection('session1')}>-- Session 1 --</a></h3>
       {showSections.session1 &&
-        <section id="session-1">
+        <AnimatedSection id="session-1">
           <Session1 />
-        </section>
+        </AnimatedSection>
       }
 
       <h3><a onClick={() => toggleSection('session2')}>-- Session 2 --</a></h3>
       {showSections.session2 &&
-        <section id="session-2">
+        <AnimatedSection id="session-2">
           <Session2 />
-        </section>
+        </AnimatedSection>
       }
 
       <h3><a onClick={() => toggleSection('session3')}>-- Session 3 --</a></h3>
       {showSections.session3 &&
-        <section id="session-3">
+        <AnimatedSection id="session-3">
           <Session3 />
-        </section>
+        </AnimatedSection>
       }
 
       <h3><a onClick={() => toggleSection('ironHack')}>-- IronHack --</a></h3>
       {showSections.ironHack &&
-        <section id="iron-hack">
+        <AnimatedSection id="iron-hack">
           <IronHack />
-        </section>
+        </AnimatedSection>
       }
 
       <h3><a onClick={() => toggleSection('products')}>-- Products --</a></h3>
       {showSections.products &&
-        <section id="products">
+        <AnimatedSection id="products">
           <Products />
-        </section>
+        </AnimatedSection>
       }
 
     </main>
