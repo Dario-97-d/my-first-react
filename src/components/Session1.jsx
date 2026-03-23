@@ -4,11 +4,11 @@ import Product from './session1/Product'
 
 export default function Session1()
 {
-    return (<>
+  return (<>
 
-        <Greeting />
-        <UserCard />
-        <Product />
+    <Greeting />
+    <UserCard />
+    <Product />
 
-    </>)
+  </>)
 }

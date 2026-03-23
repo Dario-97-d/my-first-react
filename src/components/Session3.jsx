@@ -8,15 +8,15 @@ import pic2 from  './../assets/images/clickable-picture/pic-2.jpg'
 
 export default function Session3()
 {
-    return (<>
+  return (<>
 
-        <Orangitas />
+    <Orangitas />
 
-        <Oranges />
+    <Oranges />
 
-        <FruitBasket />
+    <FruitBasket />
 
-        <ClickablePicture img={pic1} imgClicked={pic2} />
+    <ClickablePicture img={pic1} imgClicked={pic2} />
 
-    </>)
+  </>)
 }

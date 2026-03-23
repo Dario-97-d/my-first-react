@@ -8,48 +8,46 @@ import diceFace4 from './../../assets/images/dice/dice-4.png'
 import diceFace5 from './../../assets/images/dice/dice-5.png'
 import diceFace6 from './../../assets/images/dice/dice-6.png'
 
-function Dice()
+export default function Dice()
 {
-    const diceFaces = [
-        diceFace1,
-        diceFace2,
-        diceFace3,
-        diceFace4,
-        diceFace5,
-        diceFace6
-    ]
+  const diceFaces = [
+    diceFace1,
+    diceFace2,
+    diceFace3,
+    diceFace4,
+    diceFace5,
+    diceFace6
+  ]
 
-    const getRandomDiceFace = () => diceFaces[Math.floor(Math.random() * 6)]
+  const getRandomDiceFace = () => diceFaces[Math.floor(Math.random() * 6)]
 
-    const [currentDiceFace, setDiceFace] = useState(getRandomDiceFace())
-    const [isDisabled, setDisabled] = useState(false)
+  const [currentDiceFace, setDiceFace] = useState(getRandomDiceFace())
+  const [isDisabled, setDisabled] = useState(false)
 
-    const handleClick = () => {
-        if (isDisabled) return
-        
-        setDisabled(true)
-        setDiceFace(diceFace0)
+  const handleClick = () => {
+    if (isDisabled) return
 
-        setTimeout(() => {
-            setDiceFace(getRandomDiceFace())
-            setDisabled(false)
-        }, 500)
-    }
+    setDisabled(true)
+    setDiceFace(diceFace0)
 
-    return (<>
-        <h3>Random Dice Face</h3>
+    setTimeout(() => {
+      setDiceFace(getRandomDiceFace())
+      setDisabled(false)
+    }, 500)
+  }
 
-        <img
-            src={currentDiceFace}
-            onClick={handleClick}
-            style={{
-                margin: '1rem',
-                height: '10rem',
-                width: '10rem',
-                cursor: isDisabled ? 'default' : 'pointer' }}
-            disabled={isDisabled}
-        />
-    </>)
+  return (<>
+    <h3>Random Dice Face</h3>
+
+    <img
+      src={currentDiceFace}
+      onClick={handleClick}
+      style={{
+        margin: '1rem',
+        height: '10rem',
+        width: '10rem',
+        cursor: isDisabled ? 'default' : 'pointer' }}
+      disabled={isDisabled}
+    />
+  </>)
 }
-
-export default Dice

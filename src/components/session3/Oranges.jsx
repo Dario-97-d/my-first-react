@@ -2,68 +2,68 @@ import { useState } from 'react'
 
 export default function Oranges()
 {
-    const [ oranges, setOranges ] = useState(0);
-    const [ eatenOranges, setEatenOranges ] = useState(0);
+  const [ oranges, setOranges ] = useState(0);
+  const [ eatenOranges, setEatenOranges ] = useState(0);
 
-    const hasBugs = oranges === 'bugs';
+  const hasBugs = oranges === 'bugs';
 
-    const addOranges = () => {
-        // Cannot add if it has bugs.
-        if (oranges === 'bugs') return;
-        
-        // 10% chance of oranges getting bugs.
-        if (Math.random() < 0.25) {
-            setOranges('bugs')
-        }
-        else {
-            setOranges(oranges + 1)
-        }
+  const addOranges = () => {
+    // Cannot add if it has bugs.
+    if (oranges === 'bugs') return;
+
+    // 10% chance of oranges getting bugs.
+    if (Math.random() < 0.25) {
+      setOranges('bugs')
     }
-
-    const eatOrange = () => {
-        // Cannot eat orange if it has bugs.
-        if (oranges === 'bugs') return;
-
-        // Cannot eat orange if there ain't any.
-        if (oranges === 0) return;
-
-        setEatenOranges(eatenOranges + oranges)
-        setOranges(0)
+    else {
+      setOranges(oranges + 1)
     }
+  }
 
-    const clearOranges = () => {
-        setOranges(0)
-    }
+  const eatOrange = () => {
+    // Cannot eat orange if it has bugs.
+    if (oranges === 'bugs') return;
 
-    const buttonStyles = {
-        add: {
-            backgroundColor: hasBugs ? 'gray' : 'green',
-            color: 'white',
-            transition: 'background-color 0.3s ease-in-out'
-        },
-        eat: {
-            backgroundColor: hasBugs || oranges < 1 ? 'gray' : 'red',
-            color: 'white',
-            transition: 'background-color 0.3s ease-in-out'
-        },
-        clear: {
-            backgroundColor: hasBugs ? 'blue' : 'gray',
-            color: 'white',
-            transition: 'background-color 0.3s ease-in-out'
-        },
-    };
+    // Cannot eat orange if there ain't any.
+    if (oranges === 0) return;
 
-    return (<>
-        <h3>"Bugless" Oranges</h3>
+    setEatenOranges(eatenOranges + oranges)
+    setOranges(0)
+  }
 
-        <p>{ hasBugs ? '🐛🐛🐛' : oranges + ' 🍊' }</p>
+  const clearOranges = () => {
+    setOranges(0)
+  }
 
-        <div style={{ display: 'flex', flexFlow: 'row wrap', justifyContent: 'center', alignItems: 'center', gap: '1rem', margin: '1rem' }}>
-            <button onClick={addOranges} style={buttonStyles.add} disabled={hasBugs}>Add</button>
-            <button onClick={eatOrange} style={buttonStyles.eat} disabled={ hasBugs || oranges < 1 }>Eat</button>
-            <button onClick={clearOranges} style={buttonStyles.clear} disabled={!hasBugs}>Clear</button>
-        </div>
+  const buttonStyles = {
+    add: {
+      backgroundColor: hasBugs ? 'gray' : 'green',
+      color: 'white',
+      transition: 'background-color 0.3s ease-in-out'
+    },
+    eat: {
+      backgroundColor: hasBugs || oranges < 1 ? 'gray' : 'red',
+      color: 'white',
+      transition: 'background-color 0.3s ease-in-out'
+    },
+    clear: {
+      backgroundColor: hasBugs ? 'blue' : 'gray',
+      color: 'white',
+      transition: 'background-color 0.3s ease-in-out'
+    },
+  };
 
-        <h4>Eaten oranges: {eatenOranges}</h4>
-    </>)
+  return (<>
+    <h3>"Bugless" Oranges</h3>
+
+    <p>{ hasBugs ? '🐛🐛🐛' : oranges + ' 🍊' }</p>
+
+    <div style={{ display: 'flex', flexFlow: 'row wrap', justifyContent: 'center', alignItems: 'center', gap: '1rem', margin: '1rem' }}>
+      <button onClick={addOranges} style={buttonStyles.add} disabled={hasBugs}>Add</button>
+      <button onClick={eatOrange} style={buttonStyles.eat} disabled={ hasBugs || oranges < 1 }>Eat</button>
+      <button onClick={clearOranges} style={buttonStyles.clear} disabled={!hasBugs}>Clear</button>
+    </div>
+
+    <h4>Oranges eaten: {eatenOranges}</h4>
+  </>)
 }

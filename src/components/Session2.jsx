@@ -9,23 +9,23 @@ import LikeButton from './session2/LikeButton'
 
 export default function Session2()
 {
-    return (<>
+  return (<>
 
-        <Random />
+    <Random />
 
-        <IdCards />
+    <IdCards />
 
-        <Greetings lang="de">Ludwig</Greetings>
+    <Greetings lang="de">Ludwig</Greetings>
 
-        <ColorBoxes />
+    <ColorBoxes />
 
-        <CreditCards />
+    <CreditCards />
 
-        <Ratings />
+    <Ratings />
 
-        <DriverCards />
+    <DriverCards />
 
-        <LikeButton />
+    <LikeButton />
 
-    </>)
+  </>)
 }

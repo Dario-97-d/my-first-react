@@ -1,8 +1,4 @@
-function CreditCardTypeVisa()
+export default function CreditCardTypeVisa()
 {
-    return (
-        <i style={{ color: 'navy', fontWeight: 'bold' }}>VISA</i>
-    )
+  return <i style={{ color: 'navy', fontWeight: 'bold' }}>VISA</i>
 }
-
-export default CreditCardTypeVisa

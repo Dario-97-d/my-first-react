@@ -8,7 +8,8 @@ import Session3 from './components/Session3'
 import IronHack from './components/IronHack'
 import Products from './components/Products'
 
-function App() {
+export default function App()
+{
   const headerRef = useRef(null);
   const mainRef = useRef(null);
   const footerRef = useRef(null);
@@ -123,68 +124,65 @@ function App() {
 
   return (<>
 
-  <header
-    ref={headerRef}
-    style={{ height: `${headerHeight}px`, transform: `scale(${headerScale})` }}
-  >
-    <h1>Dário Dias</h1>
-    <h2>React Fundamentals Training</h2>
-  </header>
+    <header
+      ref={headerRef}
+      style={{ height: `${headerHeight}px`, transform: `scale(${headerScale})` }}
+    >
+      <h1>Dário Dias</h1>
+      <h2>React Fundamentals Training</h2>
+    </header>
 
-  <main
-    ref={mainRef}
-    style={{ height: `${mainHeight}px` }}
-    className={ isExpanded ? 'main-expanded' : '' }
-  >
+    <main
+      ref={mainRef}
+      style={{ height: `${mainHeight}px` }}
+      className={ isExpanded ? 'main-expanded' : '' }
+    >
 
-    <h3><a onClick={() => toggleSection('session1')}>-- Session 1 --</a></h3>
-    {showSections.session1 &&
-      <section id="session-1">
-        <Session1 />
-      </section>
-    }
+      <h3><a onClick={() => toggleSection('session1')}>-- Session 1 --</a></h3>
+      {showSections.session1 &&
+        <section id="session-1">
+          <Session1 />
+        </section>
+      }
 
-    <h3><a onClick={() => toggleSection('session2')}>-- Session 2 --</a></h3>
-    {showSections.session2 &&
-      <section id="session-2">
-        <Session2 />
-      </section>
-    }
+      <h3><a onClick={() => toggleSection('session2')}>-- Session 2 --</a></h3>
+      {showSections.session2 &&
+        <section id="session-2">
+          <Session2 />
+        </section>
+      }
 
-    <h3><a onClick={() => toggleSection('session3')}>-- Session 3 --</a></h3>
-    {showSections.session3 &&
-      <section id="session-3">
-        <Session3 />
-      </section>
-    }
+      <h3><a onClick={() => toggleSection('session3')}>-- Session 3 --</a></h3>
+      {showSections.session3 &&
+        <section id="session-3">
+          <Session3 />
+        </section>
+      }
 
-    <h3><a onClick={() => toggleSection('ironHack')}>-- IronHack --</a></h3>
-    {showSections.ironHack &&
-      <section id="iron-hack">
-        <IronHack />
-      </section>
-    }
+      <h3><a onClick={() => toggleSection('ironHack')}>-- IronHack --</a></h3>
+      {showSections.ironHack &&
+        <section id="iron-hack">
+          <IronHack />
+        </section>
+      }
 
-    <h3><a onClick={() => toggleSection('products')}>-- Products --</a></h3>
-    {showSections.products &&
-      <section id="products">
-        <Products />
-      </section>
-    }
+      <h3><a onClick={() => toggleSection('products')}>-- Products --</a></h3>
+      {showSections.products &&
+        <section id="products">
+          <Products />
+        </section>
+      }
 
-  </main>
+    </main>
 
-  <footer
-    ref={footerRef}
-    className={ (isExpanded ? '' : 'invisible') }
-  >
-    <button onClick={hideAll} disabled={ !isExpanded }>
-      Hide All
-    </button>
-  </footer>
+    <footer
+      ref={footerRef}
+      className={ (isExpanded ? '' : 'invisible') }
+    >
+      <button onClick={hideAll} disabled={ !isExpanded }>
+        Hide All
+      </button>
+    </footer>
 
-  </>
-  )
+  </>)
 }
-
-export default App

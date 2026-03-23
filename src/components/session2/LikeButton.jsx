@@ -2,24 +2,22 @@ import React, { useState } from 'react';
 
 const colors = ['purple', 'blue', 'green', 'yellow', 'orange', 'red']
 
-function LikeButton()
+export default function LikeButton()
 {
-    const [likes, setLikes] = useState(0);
+  const [likes, setLikes] = useState(0);
 
-    const handleClick = () => {
-        setLikes(likes + 1);
-    };
+  const handleClick = () => {
+    setLikes(likes + 1);
+  };
 
-    return (<>
-        <h3>Multicolored Likes</h3>
+  return (<>
+    <h3>Multicolored Likes</h3>
 
-        <button
-            style={{ backgroundColor: colors[likes % colors.length], margin: '2rem' }}
-            onClick={handleClick}
-        >
-            {likes} Likes
-        </button>
-    </>)
+    <button
+      style={{ backgroundColor: colors[likes % colors.length], margin: '2rem' }}
+      onClick={handleClick}
+    >
+      {likes} Likes
+    </button>
+  </>)
 }
-
-export default LikeButton

@@ -1,16 +1,14 @@
 import CreditCardTypeMasterCard from "./CreditCardTypeMasterCard"
 import CreditCardTypeVisa from "./CreditCardTypeVisa"
 
-function CreditCardType(props)
+export default function CreditCardType(props)
 {
-    const { type } = props
+  const { type } = props
 
-    const result = ({
-        'Visa': <CreditCardTypeVisa />,
-        'Master Card': <CreditCardTypeMasterCard />
-    }) [type]
+  const result = ({
+    'Visa': <CreditCardTypeVisa />,
+    'Master Card': <CreditCardTypeMasterCard />
+  }) [type]
 
-    return result
+  return result
 }
-
-export default CreditCardType

@@ -11,27 +11,25 @@ import diceFace4 from './../assets/images/dice/dice-4.png'
 import diceFace5 from './../assets/images/dice/dice-5.png'
 import diceFace6 from './../assets/images/dice/dice-6.png'
 
-function IronHack()
+export default function IronHack()
 {
-    return (<>
-    
+  return (<>
+
     <Dice />
 
     <Carousel images={[
-        diceFace0,
-        diceFace1,
-        diceFace2,
-        diceFace3,
-        diceFace4,
-        diceFace5,
-        diceFace6
+      diceFace0,
+      diceFace1,
+      diceFace2,
+      diceFace3,
+      diceFace4,
+      diceFace5,
+      diceFace6
     ]} />
 
     <NumbersTable limit={12} />
 
     <FaceBook />
 
-    </>)
+  </>)
 }
-
-export default IronHack

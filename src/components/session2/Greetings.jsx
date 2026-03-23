@@ -30,7 +30,7 @@ const buttonStyles =
   border: '0'
 }
 
-function Greetings(props)
+export default function Greetings(props)
 {
   const { lang, children } = props
 
@@ -49,5 +49,3 @@ function Greetings(props)
     <h4 id="greeting-target" style={{ textDecoration: 'underline', textUnderlineOffset: '0.5rem' }}>{dict[lang]}</h4>
   </>)
 }
-
-export default Greetings
