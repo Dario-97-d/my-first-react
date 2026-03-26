@@ -76,3 +76,29 @@ src
  ├─ index.css
  └─ main.jsx
 ```
+
+## 📸 Screenshots
+
+### Start View
+
+![Start View](./app-screenshots/start-view-1230x922.png)
+
+### Accordion Open
+
+![Accordion Open](./app-screenshots/accordion-open-1230x922.png)
+
+### Resizable Flexbox
+
+![Resizable Flexbox](./app-screenshots/resizable-flexbox-1230x922.png)
+
+### Products CRUD
+
+![Products CRUD](./app-screenshots/products-crud-1230x922.png)
+
+### Edit Product
+
+![Edit Product](./app-screenshots/edit-product-1230x922.png)
+
+### Scaled down Header on mobile
+
+![Scaled down Header on mobile](./app-screenshots/mobile-scaled-down-header-1230x692.png)
