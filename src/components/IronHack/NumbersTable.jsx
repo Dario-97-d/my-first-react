@@ -45,12 +45,14 @@ export default function NumbersTable(props)
   return (<>
     <h3>Flexboxing</h3>
 
-    <div ref={wrapperRef} className={ styles['wrapper'] }>
-      <div className={ styles['div-table'] }>
-        {numbers.map(n => <div key={n} className={ styles['div-number'] }>{n}</div>)}
-      </div>
+    <div className={styles['fixed-background']}>
+      <div ref={wrapperRef} className={ styles['wrapper'] }>
+        <div className={ styles['div-table'] }>
+          {numbers.map(n => <div key={n} className={ styles['div-number'] }>{n}</div>)}
+        </div>
 
-      <div ref={handleRef} className={ styles['pan-for-resize'] }></div>
+        <div ref={handleRef} className={ styles['pan-for-resize'] }></div>
+      </div>
     </div>
   </>)
 }
