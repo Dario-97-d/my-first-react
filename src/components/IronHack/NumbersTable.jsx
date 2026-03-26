@@ -17,28 +17,44 @@ export default function NumbersTable(props)
     let startX
     let startWidth
 
-    const onMouseMove = (e) => {
-      const dx = e.clientX - startX
+    const onMove = (clientX) => {
+      const dx = clientX - startX
       wrapper.style.width = `${startWidth + dx}px`
     }
 
-    const onMouseUp = () => {
+    const onEnd = () => {
       window.removeEventListener('mousemove', onMouseMove)
-      window.removeEventListener('mouseup', onMouseUp)
+      window.removeEventListener('mouseup', onEnd)
+      window.removeEventListener('touchmove', onTouchMove)
+      window.removeEventListener('touchend', onEnd)
+    }
+
+    const onMouseMove = (e) => onMove(e.clientX)
+    const onTouchMove = (e) => {
+      e.preventDefault()
+      onMove(e.touches[0].clientX)
     }
 
     const onMouseDown = (e) => {
       startX = e.clientX
       startWidth = wrapper.offsetWidth
-
       window.addEventListener('mousemove', onMouseMove)
-      window.addEventListener('mouseup', onMouseUp)
+      window.addEventListener('mouseup', onEnd)
+    }
+
+    const onTouchStart = (e) => {
+      startX = e.touches[0].clientX
+      startWidth = wrapper.offsetWidth
+      window.addEventListener('touchmove', onTouchMove, { passive: false })
+      window.addEventListener('touchend', onEnd)
     }
 
     handle.addEventListener('mousedown', onMouseDown)
+    handle.addEventListener('touchstart', onTouchStart, { passive: true })
 
     return () => {
       handle.removeEventListener('mousedown', onMouseDown)
+      handle.removeEventListener('touchstart', onTouchStart)
     }
   }, [])
 
